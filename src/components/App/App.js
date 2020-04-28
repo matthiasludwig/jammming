@@ -28,7 +28,7 @@ class App extends React.Component {
                     name: "My Father's Eyes",
                     artist: "Eric Clapton",
                     album: "Unplugged",
-                    id: 2
+                    id: 3
                 }
             ],
             playlistName: "New Playlist"
@@ -40,9 +40,10 @@ class App extends React.Component {
     }
 
     addTrack(track) {
+        console.log(track);
         let playlistContent = this.state.playlistTracks;
         if (!(playlistContent.find(song => song.id === track.id))) {
-            playlistContent.push(playlistContent);
+            playlistContent.push(track);
             this.setState({playlistTracks: playlistContent});
         }
     }
@@ -63,7 +64,8 @@ class App extends React.Component {
             <div className="App">
               <SearchBar />
               <div className="App-playlist">
-                <SearchResults searchResults={this.state.searchResults} onAdd={this.addTrack}/>
+                <SearchResults searchResults={this.state.searchResults}
+                               onAdd={this.addTrack}/>
                 <Playlist playlistTracks={this.state.playlistTracks}
                           playlistName={this.state.playlistName}
                           onRemove={this.removeTrack}
