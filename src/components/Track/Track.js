@@ -20,13 +20,14 @@ class Track extends React.Component {
     render() {
         return (
             <div className="Track">
+                <img className={"Track-Image"} src={this.props.track.albumSrc} alt={this.props.track.album} />
                 <div className="Track-information">
                     <h3>{ this.props.track.name }</h3>
                     <p>{ this.props.track.artist } | { this.props.track.album }</p>
                 </div>
                 {this.props.isRemoval
-                    ? <button className="Track-action" onClick={this.removeTrack}>-</button>
-                    : <button className="Track-action" onClick={this.addTrack}>+</button>
+                    ? <button className="Track-action" onClick={this.removeTrack}><i className="fas fa-music-alt-slash"></i></button>
+                    : <button className="Track-action" onClick={this.addTrack}><i className="fas fa-list-music"></i></button>
 
                 }
             </div>

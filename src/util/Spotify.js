@@ -1,7 +1,7 @@
 let accessToken = '';
 
 const clientID = 'ab109e91247f4e6ba3386f66da5ba81e';
-const redirectURL = 'https://d2kiztbld5brey.cloudfront.net';
+const redirectURL = 'http://localhost:3000';
 
 const Spotify = {
     // Method to set the accessToken
@@ -29,11 +29,13 @@ const Spotify = {
     // Function to format the jsonResponse from searchSongs()
     formatJSON(jsonResponse) {
         const formattedJSON = [];
+        // console.log(jsonResponse);
         jsonResponse.tracks.items.forEach(item => {
             let song = {
                 name: item.name,
                 artist: (item.artists.map(artist => artist.name)).join(' & '),
                 album: item.album.name,
+                albumSrc: item.album.images[2].url,
                 id: item.id,
                 uri: item.uri
             }
@@ -51,7 +53,6 @@ const Spotify = {
             const response = await fetch(urlRequest, {method: 'GET', headers: requestHeader});
             if (response.ok) {
                 const jsonResponse = await response.json();
-                console.log(jsonResponse);
                 return this.formatJSON(jsonResponse);
             }
             throw new Error(`Request to ${urlRequest} failed!`);
