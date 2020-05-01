@@ -13,7 +13,8 @@ class SearchBar extends React.Component {
         this.handleTermChange = this.handleTermChange.bind(this);
     }
 
-    search() {
+    search(event) {
+        event.preventDefault();
         this.props.onSearch(this.state.term)
     }
 
@@ -23,10 +24,10 @@ class SearchBar extends React.Component {
 
     render() {
         return (
-            <div className="SearchBar">
+            <form className="SearchBar">
                 <input onChange={this.handleTermChange} placeholder="Enter A Song, Album, or Artist"/>
                 <button onClick={this.search} className="SearchButton">SEARCH</button>
-            </div>
+            </form>
         );
     }
 }
