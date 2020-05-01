@@ -1,5 +1,7 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+![Production Build](https://github.com/matthiasludwig/jammming/workflows/Production%20Build/badge.svg)
+
 ## Available Scripts
 
 In the project directory, you can run:
