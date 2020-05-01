@@ -26,8 +26,8 @@ class Track extends React.Component {
                     <p>{ this.props.track.artist } | { this.props.track.album }</p>
                 </div>
                 {this.props.isRemoval
-                    ? <button className="Track-action" onClick={this.removeTrack}>-</button>
-                    : <button className="Track-action" onClick={this.addTrack}>+</button>
+                    ? <button className="Track-action" onClick={this.removeTrack}><i className="fas fa-music-alt-slash"></i></button>
+                    : <button className="Track-action" onClick={this.addTrack}><i className="fas fa-list-music"></i></button>
 
                 }
             </div>
