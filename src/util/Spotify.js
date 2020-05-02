@@ -1,7 +1,7 @@
 let accessToken = '';
 
 const clientID = 'ab109e91247f4e6ba3386f66da5ba81e';
-const redirectURL = 'http://localhost:3000';
+const redirectURL = 'http://localhost:3000'; // https://d2kiztbld5brey.cloudfront.net
 
 const Spotify = {
     // Method to set the accessToken

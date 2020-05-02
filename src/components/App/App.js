@@ -23,7 +23,6 @@ class App extends React.Component {
     }
 
     addTrack(track) {
-        console.log("Add Track: ", track);
         let playlistContent = this.state.playlistTracks;
         if (!(playlistContent.find(song => song.id === track.id))) {
             playlistContent.push(track);
@@ -32,7 +31,6 @@ class App extends React.Component {
     }
 
     removeTrack(track) {
-        console.log("Remove Track: ", track);
         let playlistContent = this.state.playlistTracks.filter(song => song.id !== track.id);
         this.setState({playlistTracks: playlistContent});
     }
@@ -44,7 +42,9 @@ class App extends React.Component {
     search(term) {
         Spotify.getAccessToken();
         const response = Spotify.searchSongs(term);
-        response.then(data => this.setState({searchResults: data}));
+        response.then(data => {
+            this.setState({searchResults: data});
+        });
     }
 
     savePlaylist() {
